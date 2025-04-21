@@ -1,0 +1,4 @@
+
+SELECT "Код региона", dictGetString('shops.ch_region_dict','txt',tuple("Код региона")) AS  "Текст региона", "Товарное направление",
+"Код канала сбыта", dictGet('shops.ch_chanel_dict','txtsh', toUInt64("Код канала сбыта")) AS "Текст канала сбыта","Плановое количество", "Фактические количество", "Процент выполнения плана за месяц", "Код товара", dictGet('shops.ch_product_dict','brand', toUInt64("Код товара")) AS "Код бренда", dictGetString('shops.ch_product_dict','txt',tuple("Код товара")) AS "Текст", dictGet('shops.ch_price_dict','price', tuple("Код товара","Код региона","Код канала сбыта")) AS "Цена" 
+FROM ch_plan_fact
