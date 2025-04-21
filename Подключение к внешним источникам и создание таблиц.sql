@@ -6,9 +6,9 @@
 -- Распределение таблиц производим выбирая поле распределение, обеспечивающее наименьший перекос данных и по возможности учитывая
 -- возможные поля для Joins
 
--- DROP TABLE std11_61.plan if exists;
+-- DROP TABLE shops.plan if exists;
 
-CREATE TABLE std11_61.plan (
+CREATE TABLE shops.plan (
 	"date" date,
 	region varchar(20),
 	matdirec varchar(20),
@@ -27,7 +27,7 @@ WITH (appendoptimized=true, orientation=column, compresslevel=1, compresstype=zs
 
 -- DROP TABLE gp.sales if exists;
 
-CREATE TABLE std11_61.sales (
+CREATE TABLE shops.sales (
 	"date" date,
 	region varchar(20),
 	material varchar(20),
@@ -47,9 +47,9 @@ WITH (appendoptimized=true, orientation=column, compresslevel=1, compresstype=zs
 
 -- 1) price
 
--- DROP TABLE if exists std11_61.price ;
+-- DROP TABLE if exists shops.price ;
 
-CREATE TABLE std11_61.price (
+CREATE TABLE shops.price (
 	material varchar(20),
 	region varchar(20),
 	distr_chan varchar(100),
@@ -59,9 +59,9 @@ DISTRIBUTED REPLICATED;
 
 -- 2) product
 
--- DROP TABLE if exists std11_61.product ;
+-- DROP TABLE if exists shops.product ;
 
-CREATE TABLE std11_61.product (
+CREATE TABLE shops.product (
 	material varchar(20),
 	asgrp int,
 	brand int,
@@ -73,9 +73,9 @@ DISTRIBUTED REPLICATED;
 
 -- 3) chanel
 
--- DROP TABLE if exists std11_61.chanel ;
+-- DROP TABLE if exists shops.chanel ;
 
-CREATE TABLE std11_61.chanel (
+CREATE TABLE shops.chanel (
 	distr_chan varchar(100),
 	txtsh text
 )
@@ -83,9 +83,9 @@ DISTRIBUTED REPLICATED;
 
 -- 4) region
 
--- DROP TABLE if exists std11_61.region ;
+-- DROP TABLE if exists shops.region ;
 
-CREATE TABLE std11_61.region (
+CREATE TABLE shops.region (
 	region varchar(20),
 	txt text
 )
